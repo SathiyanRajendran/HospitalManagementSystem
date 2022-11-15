@@ -1,0 +1,12 @@
+<h1 [textContent]="title"></h1>
+<h1>{{title}}</h1>
+<input [disabled]="isDisabled" type="text" value="{{firstName}}">
+<input disabled="{{isDisabled}}" type="text" value="{{lastName}}"><br>
+<button (click)="myfunc1()">Click Me</button>
+<button (click)="title='Angular Training'">ChangeName</button>
+<button (click)="toggle()">toggle</button>
+<h1 [hidden]="hide">{{getCourses()}}</h1>
+{{AngularLogo}}
+<img src="{{AngularLogo}}">
+<img [src]="AngularLogo">
+<img bind-src="AngularLogo">

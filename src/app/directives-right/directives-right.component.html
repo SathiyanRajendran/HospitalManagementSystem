@@ -1,0 +1,26 @@
+<!-- <p style="display: block">Display here without ngIf</p>
+<p style="display: none">Hide here without ngIf</p> -->
+
+<!-- <p *ngIf="true">Display here without ngIf</p>
+<p *ngIf="false" >Hide here without ngIf</p> -->
+<div *ngIf="books;then BooksAvailable;else noBooksAvailable">
+  Books Variable exists</div>
+<ng-template #BooksAvailable>
+  <!-- Book Available  -->
+  <div *ngFor="let obj of books;index as i;even as e;odd as o;first as f;last as l">
+    <div [ngSwitch]="obj.bookStatus">
+      <div *ngSwitchCase="'Not Available'" [ngStyle]="{'text-decoration':'line-through'}">
+        {{i}}-{{obj.bookName}}
+      </div>
+      <div *ngSwitchCase="'Available'" [ngStyle]="{'color':'green'}">
+        {{i}}-{{obj.bookName}}
+      </div>
+      <div *ngSwitchDefault>
+       Default-{{obj.bookName}}
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #noBooksAvailable>
+  Not Available
+</ng-template>
